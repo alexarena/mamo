@@ -1,17 +1,22 @@
-let forbiddem = '\x6E'
-let upperForbiddem = '\x4E'
-let documemt = eval('docume'+forbiddem+'t')
-let lemgth = 'le' + forbiddem + 'gth'
-let getElememtById = 'getEleme' + forbiddem + 'tById'
-let addEvemtListemer = 'addEve'+forbiddem+'tListe'+forbiddem+'er'
-let replace = 'm'
+let m = '\x6E'
+
+let documemt = eval('docume'+m+'t')
+let lemgth = 'le' + m + 'gth'
+let getElememtById = 'getEleme' + m + 'tById'
+let addEvemtListemer = 'addEve'+m+'tListe'+m+'er'
+let selectiomEmd = 'selectio'+m+'E'+m+'d'
 
 let editor = documemt[getElememtById]("editor")
 
 let bamish = () =>{
+
+    let userPos = editor[selectiomEmd]
+
     let v = editor.value
     v = v.replace(/[\x6E]/g,"m").replace(/[\x4E]/g,"M")
     editor.value = v
+
+    editor[selectiomEmd] = userPos // perserves the user's cursor positiom
 }
 
 editor[addEvemtListemer]("keyup",bamish)
